@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shivona AI — Payal Jain</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #060d1f;
+      --surface: #0d1830;
+      --border: rgba(255,255,255,0.08);
+      --text: #f0ede8;
+      --text-secondary: #9a9690;
+      --text-muted: #5a5752;
+      --accent: #c9a96e;
+      --accent-light: #e8d5b0;
+      --accent-bg: rgba(201,169,110,0.08);
+      --accent-border: rgba(201,169,110,0.25);
+    }
+    body {
+      background: #030810;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-family: 'DM Sans', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      padding: 2rem 1rem;
+      gap: 1.5rem;
+    }
+
+    /* CARD */
+    .card {
+      width: 100%;
+      max-width: 400px;
+      background: var(--bg);
+      border: 0.5px solid var(--accent-border);
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 0 60px rgba(201,169,110,0.08), 0 20px 60px rgba(0,0,0,0.6);
+    }
+
+    .card-top {
+      background: linear-gradient(135deg, #0a1428 0%, #0d1f3e 100%);
+      padding: 2rem 2rem 1.5rem;
+      border-bottom: 0.5px solid var(--border);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card-top::before {
+      content: '';
+      position: absolute;
+      top: -40px; right: -40px;
+      width: 160px; height: 160px;
+      background: radial-gradient(circle, rgba(201,169,110,0.12) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .logo {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.5rem;
+      color: var(--text);
+      margin-bottom: 1.5rem;
+      position: relative;
+    }
+    .logo span { color: var(--accent); }
+
+    .name {
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 4px;
+      position: relative;
+    }
+
+    .title {
+      font-size: 13px;
+      color: var(--accent);
+      margin-bottom: 4px;
+      position: relative;
+    }
+
+    .tagline {
+      font-family: 'DM Serif Display', serif;
+      font-style: italic;
+      font-size: 12px;
+      color: var(--text-muted);
+      position: relative;
+    }
+
+    .card-bottom {
+      padding: 1.5rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 1rem;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      flex: 1;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .contact-icon {
+      width: 28px; height: 28px;
+      background: var(--accent-bg);
+      border: 0.5px solid var(--accent-border);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 13px;
+      flex-shrink: 0;
+    }
+
+    .contact-label {
+      font-size: 12px;
+      color: var(--text-secondary);
+      line-height: 1.3;
+    }
+
+    .contact-label strong {
+      display: block;
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--text);
+    }
+
+    .qr-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      flex-shrink: 0;
+    }
+
+    #qrcode {
+      background: white;
+      padding: 6px;
+      border-radius: 10px;
+      width: 80px; height: 80px;
+      display: flex; align-items: center; justify-content: center;
+    }
+
+    #qrcode canvas, #qrcode img {
+      width: 68px !important;
+      height: 68px !important;
+    }
+
+    .qr-label {
+      font-size: 10px;
+      color: var(--text-muted);
+      text-align: center;
+    }
+
+    /* SAVE BUTTON */
+    .save-hint {
+      font-size: 12px;
+      color: var(--text-muted);
+      text-align: center;
+      max-width: 400px;
+    }
+
+    .save-hint span {
+      color: var(--accent);
+    }
+
+    .btn-share {
+      background: var(--accent);
+      color: #0d0d0d;
+      font-size: 14px;
+      font-weight: 500;
+      padding: 12px 32px;
+      border-radius: 100px;
+      border: none;
+      cursor: pointer;
+      font-family: 'DM Sans', sans-serif;
+      transition: opacity 0.2s;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn-share:hover { opacity: 0.85; }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <div class="card-top">
+      <div class="logo">Shivona<span> AI</span></div>
+      <div class="name">Payal Jain</div>
+      <div class="title">Founder & AI Consultant</div>
+      <div class="tagline">Transforming Intelligence into Impact</div>
+    </div>
+
+    <div class="card-bottom">
+      <div class="contact-links">
+        <a class="contact-item" href="https://wa.me/%%WHATSAPP_NUMBER%%">
+          <div class="contact-icon">💬</div>
+          <div class="contact-label">
+            <strong>+91 90422 63277</strong>
+            WhatsApp
+          </div>
+        </a>
+        <a class="contact-item" href="/">
+          <div class="contact-icon">🌐</div>
+          <div class="contact-label">
+            <strong>shivona-ai.vercel.app</strong>
+            Website
+          </div>
+        </a>
+
+      </div>
+
+      <div class="qr-wrap">
+        <div id="qrcode"></div>
+        <div class="qr-label">Scan to<br>WhatsApp me</div>
+      </div>
+    </div>
+  </div>
+
+  <p class="save-hint">📱 <span>Screenshot this card</span> to save or share · Tap any link to connect</p>
+  <a href="https://wa.me/%%WHATSAPP_NUMBER%%" class="btn-share">WhatsApp Payal</a>
+
+  <script>
+    new QRCode(document.getElementById("qrcode"), {
+      text: "https://wa.me/%%WHATSAPP_NUMBER%%",
+      width: 68,
+      height: 68,
+      colorDark: "#000000",
+      colorLight: "#ffffff",
+      correctLevel: QRCode.CorrectLevel.M
+    });
+  </script>
+</body>
+</html>

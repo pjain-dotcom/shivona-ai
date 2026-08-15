@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shivona AI — Links</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #060d1f;
+      --surface: #0d1830;
+      --border: rgba(255,255,255,0.08);
+      --text: #f0ede8;
+      --text-secondary: #9a9690;
+      --text-muted: #5a5752;
+      --accent: #c9a96e;
+      --accent-bg: rgba(201,169,110,0.08);
+      --accent-border: rgba(201,169,110,0.25);
+    }
+    body {
+      background: var(--bg);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-family: 'DM Sans', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      padding: 2rem 1rem;
+    }
+    .wrap {
+      width: 100%;
+      max-width: 380px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+    }
+    .brand {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+    }
+    .logo {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2rem;
+      color: var(--text);
+    }
+    .logo span { color: var(--accent); }
+    .name {
+      font-size: 14px;
+      color: var(--text-secondary);
+    }
+    .tagline {
+      font-family: 'DM Serif Display', serif;
+      font-style: italic;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+    .links {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .link-btn {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      background: var(--surface);
+      border: 0.5px solid var(--border);
+      border-radius: 14px;
+      padding: 1rem 1.25rem;
+      text-decoration: none;
+      transition: border-color 0.2s, background 0.2s;
+      cursor: pointer;
+    }
+    .link-btn:hover {
+      border-color: var(--accent-border);
+      background: var(--accent-bg);
+    }
+    .link-btn.primary {
+      background: var(--accent);
+      border-color: var(--accent);
+    }
+    .link-btn.primary:hover { opacity: 0.88; background: var(--accent); }
+    .link-icon {
+      font-size: 1.25rem;
+      width: 32px;
+      text-align: center;
+      flex-shrink: 0;
+    }
+    .link-text { flex: 1; }
+    .link-title {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text);
+    }
+    .link-btn.primary .link-title { color: #0d0d0d; }
+    .link-sub {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+    .link-btn.primary .link-sub { color: rgba(0,0,0,0.5); }
+    .link-arrow {
+      font-size: 16px;
+      color: var(--text-muted);
+    }
+    .link-btn.primary .link-arrow { color: rgba(0,0,0,0.4); }
+    .footer {
+      font-size: 11px;
+      color: var(--text-muted);
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+
+    <div class="brand">
+      <div class="logo">Shivona<span> AI</span></div>
+      <div class="name">Payal Jain · Founder & AI Consultant</div>
+      <div class="tagline">Transforming Intelligence into Impact</div>
+    </div>
+
+    <div class="links">
+
+      <a class="link-btn primary" href="%%BOOKING_URL%%">
+        <div class="link-icon">📅</div>
+        <div class="link-text">
+          <div class="link-title">Book a free 30 min call</div>
+          <div class="link-sub">Let's understand your business challenges</div>
+        </div>
+        <div class="link-arrow">→</div>
+      </a>
+
+      <a class="link-btn" href="https://wa.me/%%WHATSAPP_NUMBER%%">
+        <div class="link-icon">💬</div>
+        <div class="link-text">
+          <div class="link-title">WhatsApp me</div>
+          <div class="link-sub">+91 90422 63277</div>
+        </div>
+        <div class="link-arrow">→</div>
+      </a>
+
+      <a class="link-btn" href="/">
+        <div class="link-icon">🌐</div>
+        <div class="link-text">
+          <div class="link-title">Visit Shivona AI</div>
+          <div class="link-sub">Services, approach & more</div>
+        </div>
+        <div class="link-arrow">→</div>
+      </a>
+
+    </div>
+
+    <div class="footer">© 2026 Shivona AI</div>
+
+  </div>
+</body>
+</html>

@@ -10,11 +10,15 @@ if (!number) {
 const bookingUrl = process.env.BOOKING_URL || `https://wa.me/${number}`;
 console.log(process.env.BOOKING_URL ? `Using BOOKING_URL: ${bookingUrl}` : 'BOOKING_URL not set, falling back to WhatsApp link');
 
-const src = fs.readFileSync(path.join(__dirname, 'index.html'), 'utf8');
-const out = src
-  .split('%%WHATSAPP_NUMBER%%').join(number)
-  .split('%%BOOKING_URL%%').join(bookingUrl);
+const outDir = path.join(__dirname, 'dist');
+fs.mkdirSync(outDir, { recursive: true });
 
-fs.mkdirSync(path.join(__dirname, 'dist'), { recursive: true });
-fs.writeFileSync(path.join(__dirname, 'dist', 'index.html'), out);
-console.log('Built dist/index.html');
+const htmlFiles = fs.readdirSync(__dirname).filter((f) => f.endsWith('.html'));
+for (const file of htmlFiles) {
+  const src = fs.readFileSync(path.join(__dirname, file), 'utf8');
+  const out = src
+    .split('%%WHATSAPP_NUMBER%%').join(number)
+    .split('%%BOOKING_URL%%').join(bookingUrl);
+  fs.writeFileSync(path.join(outDir, file), out);
+  console.log(`Built dist/${file}`);
+}

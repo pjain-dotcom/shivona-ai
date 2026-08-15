@@ -18,7 +18,12 @@ Landing page for Shivona AI, an AI consulting practice offering:
 3. **Strategic consulting** — ongoing advisory on AI direction and tooling
 4. **Training & education** — workshops for schools/youth and women's/community groups
 
-Single static `index.html` page (no framework). The WhatsApp contact number is templated as `%%WHATSAPP_NUMBER%%` and injected at build time from the `WHATSAPP_NUMBER` env var, so it's not hardcoded in source.
+Three static pages (no framework):
+- `index.html` — the main site
+- `card.html` — digital business card with WhatsApp QR code, served at `/card`
+- `links.html` — link-in-bio style page, served at `/links`
+
+Every `.html` file at the project root is built the same way: the WhatsApp contact number is templated as `%%WHATSAPP_NUMBER%%` and injected at build time from the `WHATSAPP_NUMBER` env var, so it's not hardcoded in source. `vercel.json` sets `cleanUrls: true` so `card.html`/`links.html` are reachable without the `.html` extension.
 
 Contact CTAs are device-aware (CSS `hover`/`pointer` media features, no JS): touch devices see a WhatsApp link, mouse/desktop visitors see a booking link instead — `wa.me` redirects to `web.whatsapp.com` on desktop, which requires an already-linked WhatsApp Web session and is a dead end for most first-time visitors. The booking link is templated as `%%BOOKING_URL%%` from the `BOOKING_URL` env var; if unset, it falls back to the same WhatsApp link so the build never breaks.
 
@@ -35,7 +40,7 @@ npm run dev             # builds dist/index.html and serves it
 npm run build
 ```
 
-Reads `WHATSAPP_NUMBER` from the environment and writes the finished page to `dist/index.html`. Fails loudly if the env var isn't set — no silent fallback to a hardcoded number.
+Reads `WHATSAPP_NUMBER` from the environment and writes every `.html` page at the project root into `dist/`. Fails loudly if the env var isn't set — no silent fallback to a hardcoded number.
 
 ## Deployment
 
