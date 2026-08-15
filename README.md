@@ -1,11 +1,13 @@
 ---
 name: Shivona AI
-description: AI consulting landing page — readiness audits, implementation, strategic consulting, and AI training/education
+description: AI consulting site — landing page, digital business card, and link-in-bio page for readiness audits, implementation, strategic consulting, and AI training/education
 tagline: Transforming Intelligence into Impact
-status: pre-launch
+status: live
 stack: static-html
 contact_channel: whatsapp
 contact_link: https://wa.me/919042263277
+booking_link: https://calendly.com/pagglu/30min
+live_url: https://shivona-ai.vercel.app
 created: 2026-08-15
 ---
 
@@ -17,6 +19,12 @@ Landing page for Shivona AI, an AI consulting practice offering:
 2. **Solution & implementation** — building and deploying automations/workflows
 3. **Strategic consulting** — ongoing advisory on AI direction and tooling
 4. **Training & education** — workshops for schools/youth and women's/community groups
+
+## Live
+
+- [shivona-ai.vercel.app](https://shivona-ai.vercel.app) — main site
+- [shivona-ai.vercel.app/card](https://shivona-ai.vercel.app/card) — digital business card with WhatsApp QR code
+- [shivona-ai.vercel.app/links](https://shivona-ai.vercel.app/links) — link-in-bio page
 
 Three static pages (no framework):
 - `index.html` — the main site
@@ -30,8 +38,8 @@ Contact CTAs are device-aware (CSS `hover`/`pointer` media features, no JS): tou
 ## Local preview
 
 ```bash
-cp .env.example .env   # first time only, edit if the number changes
-npm run dev             # builds dist/index.html and serves it
+cp .env.example .env   # first time only, edit if the number/booking link changes
+npm run dev             # builds dist/ (all pages) and serves it
 ```
 
 ## Build
