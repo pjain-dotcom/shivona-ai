@@ -20,6 +20,8 @@ Landing page for Shivona AI, an AI consulting practice offering:
 
 Single static `index.html` page (no framework). The WhatsApp contact number is templated as `%%WHATSAPP_NUMBER%%` and injected at build time from the `WHATSAPP_NUMBER` env var, so it's not hardcoded in source.
 
+Contact CTAs are device-aware (CSS `hover`/`pointer` media features, no JS): touch devices see a WhatsApp link, mouse/desktop visitors see a booking link instead — `wa.me` redirects to `web.whatsapp.com` on desktop, which requires an already-linked WhatsApp Web session and is a dead end for most first-time visitors. The booking link is templated as `%%BOOKING_URL%%` from the `BOOKING_URL` env var; if unset, it falls back to the same WhatsApp link so the build never breaks.
+
 ## Local preview
 
 ```bash
@@ -40,6 +42,6 @@ Reads `WHATSAPP_NUMBER` from the environment and writes the finished page to `di
 Vercel project settings:
 - Build command: `npm run build`
 - Output directory: `dist`
-- Environment variable: `WHATSAPP_NUMBER=919042263277`
+- Environment variables: `WHATSAPP_NUMBER=919042263277`, `BOOKING_URL=<your Calendly link>`
 
 Vercel injects project env vars into the build process automatically, so no `.env` file is needed there. `.env` stays local-only (gitignored).

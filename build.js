@@ -7,8 +7,12 @@ if (!number) {
   process.exit(1);
 }
 
+const bookingUrl = process.env.BOOKING_URL || `https://wa.me/${number}`;
+
 const src = fs.readFileSync(path.join(__dirname, 'index.html'), 'utf8');
-const out = src.split('%%WHATSAPP_NUMBER%%').join(number);
+const out = src
+  .split('%%WHATSAPP_NUMBER%%').join(number)
+  .split('%%BOOKING_URL%%').join(bookingUrl);
 
 fs.mkdirSync(path.join(__dirname, 'dist'), { recursive: true });
 fs.writeFileSync(path.join(__dirname, 'dist', 'index.html'), out);

@@ -50,6 +50,8 @@
       border-radius: 100px; transition: background 0.2s;
     }
     .nav-cta:hover { background: var(--accent-bg); }
+    @media (hover: hover) and (pointer: fine) { .cta-mobile { display: none; } }
+    @media (hover: none), (pointer: coarse) { .cta-desktop { display: none; } }
     .hero {
       min-height: 100vh; display: flex; flex-direction: column;
       justify-content: center; padding: 8rem 2rem 5rem;
@@ -177,7 +179,8 @@
 
 <nav>
   <div class="nav-logo">Shivona<span> AI</span></div>
-  <a href="https://wa.me/%%WHATSAPP_NUMBER%%" class="nav-cta">Let's talk</a>
+  <a href="https://wa.me/%%WHATSAPP_NUMBER%%" class="nav-cta cta-mobile">Let's talk</a>
+  <a href="%%BOOKING_URL%%" class="nav-cta cta-desktop">Book a call</a>
 </nav>
 
 <section class="hero">
@@ -186,7 +189,8 @@
   <div class="hero-tagline">Transforming Intelligence into Impact</div>
   <p class="hero-sub">I help businesses find where they're losing time, build the right automation, and train their teams to work smarter — with 16 years of enterprise IT delivery behind every recommendation.</p>
   <div class="hero-actions">
-    <a href="https://wa.me/%%WHATSAPP_NUMBER%%" class="btn-primary">Start with a free conversation</a>
+    <a href="https://wa.me/%%WHATSAPP_NUMBER%%" class="btn-primary cta-mobile">Message on WhatsApp</a>
+    <a href="%%BOOKING_URL%%" class="btn-primary cta-desktop">Book a free 30-min call</a>
     <a href="#services" class="btn-ghost">See how it works →</a>
   </div>
 </section>
@@ -229,7 +233,8 @@
         <li>AI basics & online safety</li>
         <li>Interactive, activity-based learning</li>
       </ul>
-      <a href="https://wa.me/%%WHATSAPP_NUMBER%%" class="training-cta">Invite me to your school →</a>
+      <a href="https://wa.me/%%WHATSAPP_NUMBER%%" class="training-cta cta-mobile">Invite me to your school →</a>
+      <a href="%%BOOKING_URL%%" class="training-cta cta-desktop">Invite me to your school →</a>
     </div>
     <div class="training-card">
       <div class="training-icon">👩‍💼</div>
@@ -240,7 +245,8 @@
         <li>Prompt skills for non-techies</li>
         <li>Community & network group sessions</li>
       </ul>
-      <a href="https://wa.me/%%WHATSAPP_NUMBER%%" class="training-cta">Bring a workshop to your group →</a>
+      <a href="https://wa.me/%%WHATSAPP_NUMBER%%" class="training-cta cta-mobile">Bring a workshop to your group →</a>
+      <a href="%%BOOKING_URL%%" class="training-cta cta-desktop">Bring a workshop to your group →</a>
     </div>
   </div>
 </section>
@@ -301,7 +307,8 @@
         <div class="perk-desc">Not a pilot — actual automation and results you keep</div>
       </div>
     </div>
-    <a href="https://wa.me/%%WHATSAPP_NUMBER%%" class="btn-primary">Let's talk about working together</a>
+    <a href="https://wa.me/%%WHATSAPP_NUMBER%%" class="btn-primary cta-mobile">Let's talk about working together</a>
+    <a href="%%BOOKING_URL%%" class="btn-primary cta-desktop">Book a call about working together</a>
   </div>
 </section>
 
@@ -309,7 +316,8 @@
   <div class="cta-section">
     <h2>Start with a conversation.</h2>
     <p>30 minutes. No jargon. Just honest insight into what's possible for your business.</p>
-    <a href="https://wa.me/%%WHATSAPP_NUMBER%%" class="btn-primary">WhatsApp Payal</a>
+    <a href="https://wa.me/%%WHATSAPP_NUMBER%%" class="btn-primary cta-mobile">WhatsApp Payal</a>
+    <a href="%%BOOKING_URL%%" class="btn-primary cta-desktop">Book a call</a>
   </div>
 </section>
 
