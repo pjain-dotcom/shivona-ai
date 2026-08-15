@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shivona AI — Transforming Intelligence into Impact</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #060d1f;
+      --surface: #0d1830;
+      --surface2: #132040;
+      --border: rgba(255,255,255,0.08);
+      --border-strong: rgba(255,255,255,0.14);
+      --text: #f0ede8;
+      --text-secondary: #9a9690;
+      --text-muted: #5a5752;
+      --accent: #c9a96e;
+      --accent-light: #e8d5b0;
+      --accent-bg: rgba(201,169,110,0.08);
+      --accent-border: rgba(201,169,110,0.25);
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.25rem 2rem;
+      background: rgba(6,13,31,0.88);
+      backdrop-filter: blur(12px);
+      border-bottom: 0.5px solid var(--border);
+    }
+    .nav-logo { font-family: 'DM Serif Display', serif; font-size: 1.4rem; color: var(--text); letter-spacing: -0.3px; }
+    .nav-logo span { color: var(--accent); }
+    .nav-cta {
+      font-size: 13px; color: var(--accent); text-decoration: none;
+      border: 0.5px solid var(--accent-border); padding: 8px 18px;
+      border-radius: 100px; transition: background 0.2s;
+    }
+    .nav-cta:hover { background: var(--accent-bg); }
+    .hero {
+      min-height: 100vh; display: flex; flex-direction: column;
+      justify-content: center; padding: 8rem 2rem 5rem;
+      max-width: 900px; margin: 0 auto;
+    }
+    .hero-eyebrow { font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); margin-bottom: 1.5rem; }
+    .hero h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2.4rem, 5vw, 4rem);
+      font-weight: 400; line-height: 1.15; color: var(--text);
+      margin-bottom: 1rem; letter-spacing: -0.5px;
+    }
+    .hero h1 em { font-style: italic; color: var(--accent); }
+    .hero-tagline {
+      font-family: 'DM Serif Display', serif; font-style: italic;
+      font-size: 1.2rem; color: var(--accent-light); margin-bottom: 1.5rem; opacity: 0.85;
+    }
+    .hero-sub { font-size: 1.05rem; color: var(--text-secondary); max-width: 560px; margin-bottom: 2.5rem; line-height: 1.75; }
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; }
+    .btn-primary {
+      background: var(--accent); color: #0d0d0d; font-size: 14px; font-weight: 500;
+      padding: 12px 28px; border-radius: 100px; text-decoration: none; transition: opacity 0.2s;
+    }
+    .btn-primary:hover { opacity: 0.85; }
+    .btn-ghost { font-size: 14px; color: var(--text-secondary); text-decoration: none; padding: 12px 0; transition: color 0.2s; }
+    .btn-ghost:hover { color: var(--text); }
+    .section { max-width: 900px; margin: 0 auto; padding: 5rem 2rem; }
+    .section-label {
+      font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+      color: var(--text-muted); margin-bottom: 3rem;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .section-label::after { content: ''; flex: 1; height: 0.5px; background: var(--border); }
+    .pillars {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1px; background: var(--border);
+      border: 0.5px solid var(--border); border-radius: 16px; overflow: hidden;
+    }
+    .pillar { background: var(--surface); padding: 2rem 1.75rem; transition: background 0.2s; }
+    .pillar:hover { background: var(--surface2); }
+    .pillar-num { font-size: 11px; color: var(--accent); letter-spacing: 1px; margin-bottom: 1rem; font-weight: 500; }
+    .pillar h3 { font-size: 15px; font-weight: 500; color: var(--text); margin-bottom: 0.6rem; line-height: 1.3; }
+    .pillar p { font-size: 13px; color: var(--text-secondary); line-height: 1.65; }
+    .about { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+    .about-text h2 {
+      font-family: 'DM Serif Display', serif; font-size: 2rem;
+      font-weight: 400; line-height: 1.25; margin-bottom: 1.25rem; letter-spacing: -0.3px;
+    }
+    .about-text p { font-size: 14px; color: var(--text-secondary); line-height: 1.75; margin-bottom: 1rem; }
+    .stats-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 1px;
+      background: var(--border); border: 0.5px solid var(--border);
+      border-radius: 16px; overflow: hidden;
+    }
+    .stat { background: var(--surface); padding: 1.5rem; }
+    .stat-num { font-family: 'DM Serif Display', serif; font-size: 2rem; color: var(--accent); line-height: 1; margin-bottom: 4px; }
+    .stat-label { font-size: 12px; color: var(--text-muted); line-height: 1.4; }
+    .training-section { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .training-card {
+      background: var(--surface); border: 0.5px solid var(--border);
+      border-radius: 16px; padding: 2rem; transition: border-color 0.2s;
+    }
+    .training-card:hover { border-color: var(--accent-border); }
+    .training-icon { font-size: 1.5rem; margin-bottom: 1rem; }
+    .training-card h3 { font-size: 17px; font-weight: 500; color: var(--text); margin-bottom: 0.5rem; }
+    .training-card p { font-size: 13px; color: var(--text-secondary); line-height: 1.65; margin-bottom: 1.25rem; }
+    .training-formats { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .training-formats li { font-size: 12px; color: var(--text-secondary); display: flex; align-items: flex-start; gap: 8px; }
+    .training-formats li::before { content: '→'; color: var(--accent); flex-shrink: 0; }
+    .training-cta {
+      display: inline-block; margin-top: 1.5rem; font-size: 13px;
+      color: var(--accent); text-decoration: none;
+      border: 0.5px solid var(--accent-border); padding: 8px 18px;
+      border-radius: 100px; transition: background 0.2s;
+    }
+    .training-cta:hover { background: var(--accent-bg); }
+    .founding {
+      background: var(--accent-bg); border: 0.5px solid var(--accent-border);
+      border-radius: 20px; padding: 3.5rem 3rem;
+    }
+    .founding-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 2rem; margin-bottom: 2rem; flex-wrap: wrap; }
+    .founding h2 {
+      font-family: 'DM Serif Display', serif; font-size: 2rem;
+      font-weight: 400; line-height: 1.25; letter-spacing: -0.3px; max-width: 480px;
+    }
+    .founding-badge {
+      font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase;
+      color: var(--accent); border: 0.5px solid var(--accent-border);
+      padding: 6px 14px; border-radius: 100px; white-space: nowrap; flex-shrink: 0;
+    }
+    .founding-body { font-size: 15px; color: var(--text-secondary); line-height: 1.75; max-width: 620px; margin-bottom: 2rem; }
+    .founding-perks {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px; margin-bottom: 2.5rem;
+    }
+    .perk {
+      background: var(--surface); border: 0.5px solid var(--border);
+      border-radius: 12px; padding: 1.25rem;
+    }
+    .perk-title { font-size: 13px; font-weight: 500; color: var(--text); margin-bottom: 4px; }
+    .perk-desc { font-size: 12px; color: var(--text-muted); line-height: 1.5; }
+    .cta-section {
+      background: var(--surface); border: 0.5px solid var(--border);
+      border-radius: 20px; padding: 4rem 3rem; text-align: center;
+    }
+    .cta-section h2 {
+      font-family: 'DM Serif Display', serif; font-size: 2.2rem;
+      font-weight: 400; margin-bottom: 1rem; letter-spacing: -0.3px;
+    }
+    .cta-section p { font-size: 15px; color: var(--text-secondary); max-width: 480px; margin: 0 auto 2rem; }
+    footer { border-top: 0.5px solid var(--border); padding: 2rem; text-align: center; font-size: 12px; color: var(--text-muted); }
+    @media (max-width: 640px) {
+      .about { grid-template-columns: 1fr; gap: 2rem; }
+      .pillars { grid-template-columns: 1fr; }
+      .training-section { grid-template-columns: 1fr; }
+      nav { padding: 1rem 1.25rem; }
+      .hero { padding: 7rem 1.25rem 4rem; }
+      .section { padding: 4rem 1.25rem; }
+      .cta-section, .founding { padding: 2.5rem 1.5rem; }
+      .founding-header { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">Shivona<span> AI</span></div>
+  <a href="https://wa.me/%%WHATSAPP_NUMBER%%" class="nav-cta">Let's talk</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-eyebrow">AI Consulting</div>
+  <h1>Stop doing manually<br>what <em>AI can do</em> for you.</h1>
+  <div class="hero-tagline">Transforming Intelligence into Impact</div>
+  <p class="hero-sub">I help businesses find where they're losing time, build the right automation, and train their teams to work smarter — with 16 years of enterprise IT delivery behind every recommendation.</p>
+  <div class="hero-actions">
+    <a href="https://wa.me/%%WHATSAPP_NUMBER%%" class="btn-primary">Start with a free conversation</a>
+    <a href="#services" class="btn-ghost">See how it works →</a>
+  </div>
+</section>
+
+<section class="section" id="services">
+  <div class="section-label">What I do</div>
+  <div class="pillars">
+    <div class="pillar">
+      <div class="pillar-num">01</div>
+      <h3>AI readiness audit</h3>
+      <p>A structured review of your business to find exactly where AI and automation can save you hours every week.</p>
+    </div>
+    <div class="pillar">
+      <div class="pillar-num">02</div>
+      <h3>Solution & implementation</h3>
+      <p>I build and deploy the right tools for your business — workflows, automations, and AI-powered processes that actually work.</p>
+    </div>
+    <div class="pillar">
+      <div class="pillar-num">03</div>
+      <h3>Strategic consulting</h3>
+      <p>Your thinking partner for the long haul — helping you decide which AI direction makes sense, which tools to trust, and how to bring your team along.</p>
+    </div>
+    <div class="pillar">
+      <div class="pillar-num">04</div>
+      <h3>Training & education</h3>
+      <p>Practical AI literacy for businesses, women's communities, and the next generation — workshops and programs that build real confidence with technology.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="training">
+  <div class="section-label">Training & education</div>
+  <div class="training-section">
+    <div class="training-card">
+      <div class="training-icon">🏫</div>
+      <h3>Schools & youth</h3>
+      <p>I'm passionate about building AI literacy in young people early. I bring engaging, jargon-free sessions into classrooms — helping students understand AI as a tool, not something to fear.</p>
+      <ul class="training-formats">
+        <li>Classroom sessions (Grades 4–10)</li>
+        <li>AI basics & online safety</li>
+        <li>Interactive, activity-based learning</li>
+      </ul>
+      <a href="https://wa.me/%%WHATSAPP_NUMBER%%" class="training-cta">Invite me to your school →</a>
+    </div>
+    <div class="training-card">
+      <div class="training-icon">👩‍💼</div>
+      <h3>Women & community</h3>
+      <p>Practical workshops for women entrepreneurs and professionals who want to understand AI without the overwhelm. Designed around real business problems, not theory.</p>
+      <ul class="training-formats">
+        <li>AI tools for business owners</li>
+        <li>Prompt skills for non-techies</li>
+        <li>Community & network group sessions</li>
+      </ul>
+      <a href="https://wa.me/%%WHATSAPP_NUMBER%%" class="training-cta">Bring a workshop to your group →</a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-label">About</div>
+  <div class="about">
+    <div class="about-text">
+      <h2>Enterprise thinking. Startup speed.</h2>
+      <p>I'm Payal Jain — a senior IT and delivery leader with 16 years of experience across India and Australia, specialising in SAP S/4HANA transformation, enterprise program delivery, and AI-augmented operations.</p>
+      <p>Shivona AI is new. The experience behind it is not. Every recommendation I make is grounded in real delivery — not theory.</p>
+    </div>
+    <div class="stats-grid">
+      <div class="stat">
+        <div class="stat-num">19+</div>
+        <div class="stat-label">Years enterprise IT delivery</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">2</div>
+        <div class="stat-label">Continents of experience</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">AI</div>
+        <div class="stat-label">Hands-on implementation</div>
+      </div>
+      <div class="stat" style="grid-column: span 1;">
+        <div class="stat-num" style="font-size:0.75rem; line-height:1.8; color:var(--accent);">Process Automation<br>Digital Transformation<br>AI Implementation<br>Program Delivery</div>
+        <div class="stat-label" style="margin-top:6px;">Types of delivery</div>
+      </div>
+    </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="founding">
+  <div class="founding">
+    <div class="founding-header">
+      <h2>Founding client program</h2>
+      <div class="founding-badge">Limited spots</div>
+    </div>
+    <p class="founding-body">Shivona AI is launching, and I'm looking for a small number of founding clients to work with closely. In return for being among the first, you get my full, undivided attention — and an investment that reflects where we both are in this journey. This isn't a discount. It's a partnership.</p>
+    <div class="founding-perks">
+      <div class="perk">
+        <div class="perk-title">Full attention</div>
+        <div class="perk-desc">Small client list means you're never an afterthought</div>
+      </div>
+      <div class="perk">
+        <div class="perk-title">Founding pricing</div>
+        <div class="perk-desc">Reflects the early stage — honest and transparent</div>
+      </div>
+      <div class="perk">
+        <div class="perk-title">Shape the service</div>
+        <div class="perk-desc">Your feedback directly influences how Shivona AI evolves</div>
+      </div>
+      <div class="perk">
+        <div class="perk-title">Real outcomes</div>
+        <div class="perk-desc">Not a pilot — actual automation and results you keep</div>
+      </div>
+    </div>
+    <a href="https://wa.me/%%WHATSAPP_NUMBER%%" class="btn-primary">Let's talk about working together</a>
+  </div>
+</section>
+
+<section class="section">
+  <div class="cta-section">
+    <h2>Start with a conversation.</h2>
+    <p>30 minutes. No jargon. Just honest insight into what's possible for your business.</p>
+    <a href="https://wa.me/%%WHATSAPP_NUMBER%%" class="btn-primary">WhatsApp Payal</a>
+  </div>
+</section>
+
+<footer>
+  © 2026 Shivona AI · Transforming Intelligence into Impact
+</footer>
+
+</body>
+</html>

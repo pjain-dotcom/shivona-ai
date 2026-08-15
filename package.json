@@ -1,0 +1,8 @@
+{
+  "name": "shivona-ai",
+  "private": true,
+  "scripts": {
+    "build": "node build.js",
+    "dev": "node --env-file=.env build.js && npx serve dist"
+  }
+}
