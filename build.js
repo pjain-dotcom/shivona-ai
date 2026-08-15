@@ -8,6 +8,7 @@ if (!number) {
 }
 
 const bookingUrl = process.env.BOOKING_URL || `https://wa.me/${number}`;
+console.log(process.env.BOOKING_URL ? `Using BOOKING_URL: ${bookingUrl}` : 'BOOKING_URL not set, falling back to WhatsApp link');
 
 const src = fs.readFileSync(path.join(__dirname, 'index.html'), 'utf8');
 const out = src
